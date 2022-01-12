@@ -1,4 +1,4 @@
-import useMessages from "../hooks/useMessages";
+import useMessages from "./useMessages";
 import Message from "./Message";
 
 export default function LiveChat() {
