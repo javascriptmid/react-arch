@@ -1,6 +1,6 @@
 import createContextValue from "../createContextValue";
 
-type MessagesValue = {
+export type MessageValue = {
   id: string;
   text: string;
   user: string;
@@ -8,4 +8,4 @@ type MessagesValue = {
 };
 
 export const [MessagesProvider, useMessagesValue] =
-  createContextValue<ReadonlyArray<MessagesValue>>("MessagesProvider");
+  createContextValue<ReadonlyArray<MessageValue>>("MessagesProvider");

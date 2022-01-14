@@ -1,7 +1,9 @@
 import NavBar from "../components/NavBar";
 import VideoPlayer from "../video-player/VideoPlayer";
-import LiveChatContainer from "../chats/LiveChatContainer";
 import Comments from "../comment/Comments";
+
+import LiveChatContainer from "../chats/LiveChatContainer";
+// import MockLiveChatContainer from "../chats/MockLiveChatContainer";
 
 export default function App() {
   return (

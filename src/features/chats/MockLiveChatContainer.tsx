@@ -3,7 +3,7 @@ import { AddNewMessageProvider } from "./AddNewMessageProvider";
 import LiveChat from "./LiveChat";
 import { MessagesProvider } from "./MessagesProvider";
 
-export default function LiveChatContainerRest() {
+export default function LiveChatContainer() {
   const [messages, setMessages] = useState([
     {
       id: "1",
