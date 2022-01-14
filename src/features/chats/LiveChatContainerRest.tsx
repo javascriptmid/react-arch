@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { AddNewMessageProvider } from "./AddNewMessageProvider";
 import LiveChat from "./LiveChat";
+import { MessagesProvider } from "./MessagesProvider";
 
-export default function LiveChatContainer() {
+export default function LiveChatContainerRest() {
   const [messages, setMessages] = useState([
     {
       id: "1",
@@ -31,5 +33,11 @@ export default function LiveChatContainer() {
     });
   }
 
-  return <LiveChat messages={messages} addNewMessage={handleAddNewMessage} />;
+  return (
+    <MessagesProvider value={messages}>
+      <AddNewMessageProvider value={handleAddNewMessage}>
+        <LiveChat />
+      </AddNewMessageProvider>
+    </MessagesProvider>
+  );
 }

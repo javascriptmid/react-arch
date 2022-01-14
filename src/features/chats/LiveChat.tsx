@@ -1,16 +1,11 @@
+import { useAddNewMessageValue } from "./AddNewMessageProvider";
 import Message from "./Message";
+import { useMessagesValue } from "./MessagesProvider";
 
-type LiveChatProps = {
-  addNewMessage?: (message: string) => void;
-  messages: ReadonlyArray<{
-    id: string;
-    text: string;
-    user: string;
-    timestamp: string;
-  }>;
-};
+export default function LiveChat() {
+  const messages = useMessagesValue();
+  const addNewMessage = useAddNewMessageValue();
 
-export default function LiveChat({ messages, addNewMessage }: LiveChatProps) {
   function handleNewMessage(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
@@ -19,7 +14,7 @@ export default function LiveChat({ messages, addNewMessage }: LiveChatProps) {
       message: { value: string };
     };
 
-    addNewMessage!(formElements.message.value);
+    addNewMessage(formElements.message.value);
     form.reset();
   }
 
