@@ -1,40 +1,26 @@
-import { useState } from "react";
 import Message from "./Message";
 
-export default function LiveChat() {
-  const [messages, setMessages] = useState([
-    {
-      id: "1",
-      text: "Hello, how are you?",
-      user: "John",
-      timestamp: "2020-01-01T00:00:00.000Z",
-    },
-    {
-      id: "2",
-      text: "I'm fine, thank you!",
-      user: "John",
-      timestamp: "2020-01-01T00:00:00.000Z",
-    },
-  ]);
+type LiveChatProps = {
+  addNewMessage?: (message: string) => void;
+  messages: ReadonlyArray<{
+    id: string;
+    text: string;
+    user: string;
+    timestamp: string;
+  }>;
+};
 
+export default function LiveChat({ messages, addNewMessage }: LiveChatProps) {
   function handleNewMessage(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
     const form = e.currentTarget;
     const formElements = form.elements as typeof form.elements & {
       message: { value: string };
     };
 
-    setMessages((prevMessages) => {
-      return [
-        ...prevMessages,
-        {
-          id: `${Date.now()}`,
-          text: formElements.message.value,
-          user: "John",
-          timestamp: new Date().toISOString(),
-        },
-      ];
-    });
+    addNewMessage!(formElements.message.value);
+    form.reset();
   }
 
   return (
@@ -53,6 +39,7 @@ export default function LiveChat() {
       <form onSubmit={handleNewMessage}>
         <input
           required
+          autoComplete="off"
           className="block w-full shadow-sm border-gray-300 rounded-md focus:ring focus:border-indigo-500"
           id="message"
           name="message"

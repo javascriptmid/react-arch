@@ -23,7 +23,7 @@ test("list messages in chat", () => {
   // act
   render(
     <MessagesProvider value={messages}>
-      <LiveChat />
+      <LiveChat messages={messages} />
     </MessagesProvider>
   );
 

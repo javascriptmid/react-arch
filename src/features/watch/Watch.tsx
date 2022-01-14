@@ -1,6 +1,6 @@
 import NavBar from "../components/NavBar";
 import VideoPlayer from "../video-player/VideoPlayer";
-import LiveChat from "../chats/LiveChat";
+import LiveChatContainer from "../chats/LiveChatContainer";
 import Comments from "../comment/Comments";
 import MessageRestProvider from "../chats/MessageRestProvider";
 
@@ -15,7 +15,7 @@ export default function App() {
           </div>
           <div className="w-4/12">
             <MessageRestProvider>
-              <LiveChat />
+              <LiveChatContainer />
             </MessageRestProvider>
           </div>
         </div>
