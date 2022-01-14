@@ -10,11 +10,11 @@ export default function App() {
     <>
       <NavBar />
       <div className="py-4 px-2 max-w-5xl mx-auto space-y-2">
-        <div className="flex flex-col md:flex-row space-x-2">
-          <div className="w-8/12">
+        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
+          <div className="w-full md:w-8/12">
             <VideoPlayer />
           </div>
-          <div className="w-4/12">
+          <div className="w-full md:w-4/12">
             <LiveChatContainer />
           </div>
         </div>
